@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero container">
+  <div class="hero-inner">
+    <h1>Lean, Secure Digital Products Delivered Predictably</h1>
+    <p class="lead">
+      <strong style="color: #497eef;">S2Digital</strong> partners with organisations to build web products and
+      integrations engineered for security,
+      operability and long-term value. We prioritise clarity, pragmatic architecture and measurable outcomes.
+    </p>
+    <p class="hero-cta">
+      <button class="btn-primary" onclick="window.location.href='{{ url_for('main.services') }}'">Our Services</button>
+      <button class="btn-accent" onclick="window.location.href='{{ url_for('main.products') }}'">Explore
+        Products</button>
+    </p>
+  </div>
+</section>
+
+<section class="container features" aria-label="Capabilities">
+  <div class="grid grid-3">
+    <article class="feature">
+      <div class="feature-head">
+        <!-- Product Engineering icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6" fill="none"></circle>
+        </svg>
+        <h3>Product Engineering</h3>
+      </div>
+      <p>Backend APIs, resilient services and polished front-ends built for performance, observability and
+        maintainability.</p>
+    </article>
+
+    <article class="feature">
+      <div class="feature-head">
+        <!-- Cloud & Integrations icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 17.58A4 4 0 0016 14h-1.26A6 6 0 105 15" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          <path d="M16 14l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" fill="none" />
+        </svg>
+        <h3>Cloud & Integrations</h3>
+      </div>
+      <p>Cloud-native deployments and robust connectors that integrate legacy systems and third-party services reliably.
+      </p>
+    </article>
+
+    <article class="feature">
+      <div class="feature-head">
+        <!-- Design & UX icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 21l3-3 8.5-8.5a2.5 2.5 0 013.5 0L21 9" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          <path d="M14 6l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+            fill="none" />
+        </svg>
+        <h3>Design & UX</h3>
+      </div>
+      <p>Human-centred design delivering simple interfaces that increase adoption and reduce user friction.</p>
+    </article>
+  </div>
+</section>
+
+<section class="container outcomes">
+  <h2>How we deliver value</h2>
+  <div class="grid grid-3">
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Discovery icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6" fill="none" />
+          <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none" />
+        </svg>
+        <h4>Discovery & Roadmaps</h4>
+      </div>
+      <p>Clear scoping, risk assessment and a pragmatic roadmap so projects start with confidence.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Secure icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l7 4v5c0 5-3.58 9.74-7 11-3.42-1.26-7-6-7-11V6l7-4z" stroke="currentColor" stroke-width="1.6"
+            fill="none" stroke-linejoin="round" />
+        </svg>
+        <h4>Secure by Default</h4>
+      </div>
+      <p>Security and data protection baked into design and delivery, not bolted on afterward.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Operational Readiness icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 13h4l3-7 4 14 3-6h4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <h4>Operational Readiness</h4>
+      </div>
+      <p>Production telemetry, runbooks and automation to keep services reliable at scale.</p>
+    </div>
+
+    <!-- Additional 3 Columns -->
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Lightning icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" fill="none" />
+        </svg>
+        <h4>Performance Optimization</h4>
+      </div>
+      <p>Blazing fast load times and optimized workloads that elevate the overall user experience.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Scalability icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+            stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none" />
+          <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+        <h4>Scalable Architecture</h4>
+      </div>
+      <p>Infrastructures designed to seamlessly handle business growth without friction or costly rewrites.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Support icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" fill="none" />
+        </svg>
+        <h4>Continuous Support</h4>
+      </div>
+      <p>Post-launch maintenance and active monitoring to ensure your product stays ahead of the curve.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="container products">
+  <h2>Products</h2>
+  <p class="lead" style="color: #475569; margin-bottom: 2rem;">Practical, production-ready software components you can
+    adopt quickly and operate with confidence.</p>
+  <div class="grid grid-4"
+    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+    <!-- Product 1 -->
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Portal Icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+            fill="currentColor" />
+        </svg>
+        <h4>Customer Portal</h4>
+      </div>
+      <p>Secure client-facing portal with role-based access, audit logging and support workflows. Built for privacy and
+        scale.</p>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #2563eb; font-weight: 600;">Ideal for service providers and
+        B2B platforms.</p>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Sync Icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0020 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 004 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"
+            fill="currentColor" />
+        </svg>
+        <h4>Data Sync Engine</h4>
+      </div>
+      <p>Reliable connectors for synchronising data between systems with retries, deduplication and operational metrics.
+      </p>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #2563eb; font-weight: 600;">Designed for integration
+        projects and legacy migration work.</p>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Admin Icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm15 0h-2v3h-3v2h3v3h2v-3h3v-2h-3z" fill="currentColor" />
+        </svg>
+        <h4>Admin & Reporting</h4>
+      </div>
+      <p>Admin consoles and reporting tools that give teams visibility and safe control over production data.</p>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #2563eb; font-weight: 600;">Focus on clarity, permissioning
+        and traceability.</p>
+    </div>
+
+    <!-- Product 4 (Added as requested) -->
+    <div class="feature">
+      <div class="feature-head">
+        <!-- Security/API Icon -->
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"
+            fill="currentColor" />
+        </svg>
+        <h4>Identity & Access</h4>
+      </div>
+      <p>Seamlessly integrated authentication, Single Sign-On (SSO) capabilities, and granular token management.</p>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #2563eb; font-weight: 600;">Perfect for expanding
+        enterprise-grade security effortlessly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container cta">
+  <h3>Start a conversation</h3>
+  <p>Tell us about your objectives and constraints — we’ll propose a practical, low-risk plan.</p>
+  <p><a class="btn-primary" href="{{ url_for('main.contact') }}">Contact Us</a></p>
+</section>
+{% endblock %}

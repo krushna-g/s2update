@@ -1,0 +1,353 @@
+{% extends "base.html" %}
+{% block title %}Our Services{% endblock %}
+{% block content %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.svc-page {
+  font-family: 'Poppins', sans-serif;
+  background: #ffffff;
+  color: #374151;
+  padding-bottom: 6rem;
+}
+
+.text-gold {
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hero — clean bright white-gray */
+.svc-hero {
+  background: linear-gradient(160deg, #f0f4ff 0%, #faf5ff 50%, #fff7ed 100%);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 7rem 1.5rem 5rem;
+  text-align: center;
+}
+.svc-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+.svc-hero p {
+  font-size: 1.15rem; max-width: 700px; margin: 0 auto;
+  color: #6b7280; line-height: 1.7;
+}
+
+.badge-pill {
+  display: inline-block;
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Service Cards Grid ── */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.svc-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+.svc-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  border-radius: 18px 18px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.svc-card.c-gold::after  { background: linear-gradient(90deg, #fbbf24, #d97706); }
+.svc-card.c-teal::after  { background: linear-gradient(90deg, #2dd4bf, #0d9488); }
+.svc-card.c-rose::after  { background: linear-gradient(90deg, #fb7185, #e11d48); }
+.svc-card.c-violet::after{ background: linear-gradient(90deg, #a78bfa, #7c3aed); }
+
+.svc-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.09); }
+.svc-card:hover::after { opacity: 1; }
+
+.svc-icon {
+  width: 60px; height: 60px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.svc-icon.gold   { background: #fef9c3; color: #d97706; }
+.svc-icon.teal   { background: #ccfbf1; color: #0d9488; }
+.svc-icon.rose   { background: #ffe4e6; color: #e11d48; }
+.svc-icon.violet { background: #ede9fe; color: #7c3aed; }
+
+.svc-card h3 { font-size: 1.35rem; font-weight: 700; color: #111827; margin-bottom: 0.75rem; }
+.svc-card p  { color: #6b7280; line-height: 1.6; font-size: 0.97rem; }
+
+.svc-list { list-style: none; padding: 0; margin: 1.25rem 0 0; }
+.svc-list li {
+  padding-left: 1.4rem; position: relative; color: #6b7280;
+  font-size: 0.9rem; margin-bottom: 0.6rem;
+}
+.svc-list li::before { content: '✓'; position: absolute; left: 0; color: #d97706; font-weight: 700; }
+
+/* ── Tech Tags ── */
+.tech-section {
+  background: #fafafa;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+  padding: 4.5rem 1.5rem;
+  text-align: center;
+}
+.tech-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 2rem; }
+.tech-tag {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 9px 22px;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  color: #374151;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+.tech-tag:hover { border-color: #fbbf24; background: #fffbeb; transform: translateY(-2px); }
+
+/* ── Stats ── */
+.stats-section {
+  padding: 5rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; text-align: center; }
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease;
+}
+.stat-card:hover { transform: translateY(-4px); }
+.stat-num { font-size: 3rem; font-weight: 800; line-height: 1; margin-bottom: 0.5rem; }
+.stat-label { color: #6b7280; font-size: 0.9rem; font-weight: 500; }
+
+/* ── Methodology ── */
+.method-section { padding: 5rem 1.5rem; background: #ffffff; text-align: center; }
+.method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 3rem auto 0; }
+.method-card {
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+  border-radius: 14px;
+  border: 1px solid #f3f4f6;
+  text-align: left;
+}
+
+/* ── FAQ ── */
+.faq-section { background: #f9fafb; padding: 5rem 1.5rem; }
+.faq-inner { max-width: 800px; margin: 0 auto; }
+.faq-item {
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+  padding: 1.75rem 2rem; margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+.faq-item h5 { font-size: 1.05rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem; }
+.faq-item p  { color: #6b7280; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+/* ── CTA ── */
+.cta-section {
+  background: linear-gradient(135deg, #fef9c3 0%, #fff7ed 100%);
+  border-top: 1px solid #fde68a;
+  padding: 6rem 1.5rem;
+  text-align: center;
+}
+.btn-cta {
+  display: inline-block;
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  color: #fff; padding: 16px 44px; border-radius: 12px;
+  font-weight: 700; font-size: 1.1rem; text-decoration: none;
+  box-shadow: 0 8px 20px rgba(217,119,6,0.3);
+  transition: all 0.25s ease; font-family: 'Poppins', sans-serif;
+}
+.btn-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(217,119,6,0.4); color: #fff; }
+
+.svc-h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: #111827; margin-bottom: 0.75rem; }
+</style>
+
+<div class="svc-page">
+
+  <!-- ── Hero ── -->
+  <section class="svc-hero">
+    <span class="badge-pill">Enterprise Digital Services</span>
+    <h1>Services that <span class="text-gold">Scale</span> with You</h1>
+    <p>From architecture discovery to secure product engineering and global deployment — end-to-end delivery that transforms your corporate operations.</p>
+  </section>
+
+  <!-- ── Service Cards ── -->
+  <div class="svc-grid">
+
+    <div class="svc-card c-gold">
+      <div class="svc-icon gold">
+        <svg viewBox="0 0 24 24" style="width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Discovery &amp; Architecture</h3>
+      <p>Rapid workshops and exhaustive risk assessments to align your technology with your core business objectives.</p>
+      <ul class="svc-list">
+        <li>Roadmapping &amp; Technology Audits</li>
+        <li>System Architecture Design</li>
+        <li>Feasibility &amp; Risk Assessment</li>
+      </ul>
+    </div>
+
+    <div class="svc-card c-teal">
+      <div class="svc-icon teal">
+        <svg viewBox="0 0 24 24" style="width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <h3>Product Engineering</h3>
+      <p>Build secure, scalable web applications, rich APIs, and enterprise integrations on maintainable cloud-native codebases.</p>
+      <ul class="svc-list">
+        <li>Full-Stack Development</li>
+        <li>API Strategy &amp; Microservices</li>
+        <li>Legacy System Modernization</li>
+      </ul>
+    </div>
+
+    <div class="svc-card c-rose">
+      <div class="svc-icon rose">
+        <svg viewBox="0 0 24 24" style="width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      </div>
+      <h3>Design &amp; UI/UX</h3>
+      <p>Reduce user friction and improve conversion through data‑driven interfaces, wireframes, and deep user research.</p>
+      <ul class="svc-list">
+        <li>Interactive Wireframes</li>
+        <li>Conversion Rate Optimization</li>
+        <li>User Journey Mapping</li>
+      </ul>
+    </div>
+
+    <div class="svc-card c-violet">
+      <div class="svc-icon violet">
+        <svg viewBox="0 0 24 24" style="width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Operations &amp; Cloud Scale</h3>
+      <p>CI/CD pipelines, monitoring, incident playbooks, and bulletproof security to keep you online 24/7.</p>
+      <ul class="svc-list">
+        <li>DevOps &amp; CI/CD Pipelines</li>
+        <li>Cloud Migration (AWS / Azure)</li>
+        <li>24/7 Monitoring &amp; Support</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ── Tech Stack ── -->
+  <section class="tech-section">
+    <span class="badge-pill">Technologies</span>
+    <h2 class="svc-h2">Our <span class="text-gold">Technology</span> Stack</h2>
+    <div class="tech-tags">
+      <span class="tech-tag">Python (Flask / Django)</span>
+      <span class="tech-tag">React / Next.js</span>
+      <span class="tech-tag">AWS / Azure</span>
+      <span class="tech-tag">PostgreSQL</span>
+      <span class="tech-tag">Docker &amp; Kubernetes</span>
+      <span class="tech-tag">Machine Learning</span>
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">GraphQL</span>
+    </div>
+  </section>
+
+  <!-- ── Stats ── -->
+  <section class="stats-section">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <h2 class="svc-h2">Trusted by <span class="text-gold">Industry Leaders</span></h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num text-gold">99.9%</div>
+        <div class="stat-label">Uptime Guaranteed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:#0d9488;">50+</div>
+        <div class="stat-label">Active Deployments</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:#7c3aed;">19+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:#e11d48;">200+</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Methodology ── -->
+  <section class="method-section">
+    <h2 class="svc-h2">The S2<span class="text-gold">Digital</span> Methodology</h2>
+    <p style="color:#6b7280;font-size:1.05rem;max-width:600px;margin:.75rem auto 0;line-height:1.7;">Every service is backed by a clear 3‑step process and measurable success metrics.</p>
+    <div class="method-grid">
+      <div class="method-card">
+        <span style="font-size:2rem;font-weight:800;color:#fde68a;display:block;margin-bottom:.75rem;">01</span>
+        <h4 style="font-size:1.15rem;font-weight:700;color:#111827;margin-bottom:.4rem;">Discover</h4>
+        <p style="color:#6b7280;font-size:.93rem;line-height:1.6;">We analyze your market, constraints, and operational bottlenecks thoroughly.</p>
+      </div>
+      <div class="method-card">
+        <span style="font-size:2rem;font-weight:800;color:#fde68a;display:block;margin-bottom:.75rem;">02</span>
+        <h4 style="font-size:1.15rem;font-weight:700;color:#111827;margin-bottom:.4rem;">Prototype</h4>
+        <p style="color:#6b7280;font-size:.93rem;line-height:1.6;">Rapid sprint deployments allow you to validate concepts quickly and cheaply.</p>
+      </div>
+      <div class="method-card">
+        <span style="font-size:2rem;font-weight:800;color:#fde68a;display:block;margin-bottom:.75rem;">03</span>
+        <h4 style="font-size:1.15rem;font-weight:700;color:#111827;margin-bottom:.4rem;">Scale</h4>
+        <p style="color:#6b7280;font-size:.93rem;line-height:1.6;">Once validated, applications are hardened, secured, and globally deployed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <h2 class="svc-h2" style="text-align:center;margin-bottom:2.5rem;">Common <span class="text-gold">Questions</span></h2>
+      <div class="faq-item">
+        <h5>Do you provide post‑launch support?</h5>
+        <p>Yes — we offer ongoing maintenance and 24/7 monitoring packages tailored to your specific needs and scale.</p>
+      </div>
+      <div class="faq-item">
+        <h5>What is your typical project timeline?</h5>
+        <p>Discovery takes 1–2 weeks, followed by development cycles of 4–12 weeks depending on complexity and scope.</p>
+      </div>
+      <div class="faq-item">
+        <h5>Can you work with our existing team?</h5>
+        <p>Absolutely. We excel at integrating with in‑house teams, providing specialist support or complete project ownership.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <h2 class="svc-h2">Ready to engage with <span class="text-gold">confidence?</span></h2>
+    <p style="color:#92400e;font-size:1.1rem;margin:1rem auto 2.5rem;max-width:600px;line-height:1.6;">
+      Our engagements are scoped to deliver measurable outcomes with clear criteria and no surprises.
+    </p>
+    <a href="{{ url_for('main.contact') }}" class="btn-cta">Request a Technical Consultation</a>
+  </section>
+
+</div>
+{% endblock %}

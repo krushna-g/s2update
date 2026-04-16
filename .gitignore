@@ -1,0 +1,60 @@
+# Node / OS / Editor
+node_modules/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+venv.bak/
+
+# Environment files / secrets
+.env
+.env.*
+instance/
+secrets.json
+
+# Databases & caches
+*.db
+*.sqlite
+*.sqlite3
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+wheelhouse/
+*.whl
+
+# Logs & temp
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+.cache/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Misc
+*.bak
+*.swp
