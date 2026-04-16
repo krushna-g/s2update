@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Security Policy{% endblock %}
+{% block content %}
+
+<!-- Security Hero Section -->
+<section class="hero" style="padding: 4rem 1.5rem; text-align: center; border-radius: 1.5rem; margin-bottom: 3rem;">
+  <h1>Security Policy</h1>
+  <p class="lead">Trust and data protection are at the core of everything we build.</p>
+</section>
+
+<!-- Security Details -->
+<section class="container" style="max-width: 900px; margin-inline: auto;">
+  <p style="font-size: 1.15rem; color: #475569; margin-bottom: 3rem; text-align: center; line-height: 1.6;">
+    At S2Digital, safeguarding your information is our highest priority. We enforce rigorous security protocols across our infrastructure, products, and operational workflows to ensure your data remains completely secure and protected from unauthorized access.
+  </p>
+
+  <div class="grid grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+    <!-- Data Protection -->
+    <div class="feature">
+      <div class="feature-head">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2L3 7v7c0 5 4 9 9 9s9-4 9-9V7l-9-5z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+        </svg>
+        <h4>Data Protection & Encryption</h4>
+      </div>
+      <p>All sensitive information is encrypted both in transit (using TLS/HTTPS standards) and at rest. We utilize parameterized database access to eliminate injection risks and strictly follow best practices for secure hashing and storage.</p>
+    </div>
+
+    <!-- Access Controls -->
+    <div class="feature">
+      <div class="feature-head">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M16 11V7a4 4 0 00-8 0v4M5 11h14v10H5z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h4>Strict Access Controls</h4>
+      </div>
+      <p>We implement the principle of least privilege. Internal access to production environments is strictly role-based, logged, and requires Multi-Factor Authentication (MFA) to prevent unauthorized tampering.</p>
+    </div>
+
+    <!-- Infrastructure Security -->
+    <div class="feature">
+      <div class="feature-head">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <h4>Resilient Infrastructure</h4>
+      </div>
+      <p>Our applications are deployed on premium tier, hardened cloud infrastructure equipped with automatic scaling, continuous telemetry, and perimeter firewalls to instantly detect and mitigate anomalous behaviors.</p>
+    </div>
+
+    <!-- Continious Auditing -->
+    <div class="feature">
+      <div class="feature-head">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h4>Compliance & Auditing</h4>
+      </div>
+      <p>We actively monitor our environments and maintain audit logs to track changes. While this site is for general inquiries, our products are engineered to support strict regulatory compliance seamlessly.</p>
+    </div>
+  </div>
+
+  <div class="cta" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 3rem; border-radius: 1.25rem; border: 1px solid #e2e8f0; text-align: left; color: #334155;">
+    <h3 style="margin-top: 0; color: #0f172a; font-size: 1.5rem;">Reporting Vulnerabilities</h3>
+    <p style="margin-bottom: 2rem; font-size: 1.05rem;">We deeply value the security research community. If you believe you have discovered a vulnerability or security issue across any of our assets, please responsibly disclose it to us immediately so we can investigate and swiftly remediate it.</p>
+    <a href="{{ url_for('main.contact') }}" class="btn-primary" style="text-decoration: none; display: inline-block;">Report an Issue</a>
+  </div>
+</section>
+
+{% endblock %}

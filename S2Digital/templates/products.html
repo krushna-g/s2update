@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% block title %}Products{% endblock %}
+{% block content %}
+
+<!-- Premium Hero Section -->
+<section style="position: relative; padding: 7rem 1.5rem 6rem; text-align: center; border-radius: 1.5rem; margin-bottom: 5rem; background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #f8fafc 100%); overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+  <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, transparent 50%); animation: pulse-glow 8s infinite alternate; pointer-events: none;"></div>
+  
+  <div style="position: relative; z-index: 1; max-width: 900px; margin: 0 auto; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+    <h1 style="font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem; color: #ffffff;">
+      Next-Generation Software Components
+    </h1>
+    <p style="font-size: 1.25rem; color: #e2e8f0; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+      Practical, production-ready software components. Adopt quickly, scale effortlessly, and operate with absolute confidence.
+    </p>
+  </div>
+</section>
+
+<!-- Alternating Product Showcase -->
+<div class="container" style="max-width: 1200px; margin-inline: auto;">
+  
+  <!-- Product 1 -->
+  <section style="display: flex; flex-wrap: wrap; align-items: center; gap: 4rem; margin-bottom: 8rem;">
+    <div style="flex: 1 1 400px; order: 1;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 16px; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); color: #2563eb; margin-bottom: 1.5rem; box-shadow: 0 10px 25px rgba(37,99,235,0.15);">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 32px; height: 32px; fill: currentColor;">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+        </svg>
+      </div>
+      <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2;">Customer Portal</h2>
+      <p style="font-size: 1.15rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+        A highly secure client-facing portal featuring role-based access, automated audit logging, and deep support workflows. Engineered natively for rigorous privacy standards and enterprise scale.
+      </p>
+      <div style="display: inline-block; background: #f1f5f9; padding: 0.75rem 1.25rem; border-radius: 999px; font-weight: 600; color: #334155; font-size: 0.95rem;">
+        <span style="color: #2563eb;">Ideal for:</span> Service Providers & B2B Platforms
+      </div>
+    </div>
+    <div style="flex: 1 1 500px; order: 2;">
+      <div style="position: relative; border-radius: 1.5rem; background: linear-gradient(145deg, #e0f2fe, #f8fafc); padding: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.6); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <!-- Faux UI Element -->
+        <div style="width: 80%; height: 75%; background: white; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: flex; flex-direction: column;">
+          <div style="height: 48px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; padding: 0 1rem; gap: 8px;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ef4444;"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #eab308;"></div>
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: #22c55e;"></div>
+          </div>
+          <div style="padding: 1.5rem; flex: 1; display:flex; flex-direction: column; gap: 1rem;">
+            <div style="width: 40%; height: 24px; background: #e2e8f0; border-radius: 6px;"></div>
+            <div style="width: 100%; height: 12px; background: #f1f5f9; border-radius: 4px;"></div>
+            <div style="width: 85%; height: 12px; background: #f1f5f9; border-radius: 4px;"></div>
+            <div style="margin-top: auto; width: 100%; height: 60px; background: #eff6ff; border-radius: 8px; border: 1px dashed #bfdbfe;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product 2 -->
+  <section style="display: flex; flex-wrap: wrap; align-items: center; gap: 4rem; margin-bottom: 8rem; flex-direction: row-reverse;">
+    <div style="flex: 1 1 400px; order: 1;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 16px; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); color: #ef4444; margin-bottom: 1.5rem; box-shadow: 0 10px 25px rgba(239,68,68,0.15);">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 32px; height: 32px; fill: currentColor;">
+          <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0020 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 004 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+        </svg>
+      </div>
+      <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2;">Data Sync Engine</h2>
+      <p style="font-size: 1.15rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+        Build resilient connections between disparite systems. Featuring automated retries, sophisticated deduplication, and deep operational metrics to ensure data integrity without manual intervention.
+      </p>
+      <div style="display: inline-block; background: #f1f5f9; padding: 0.75rem 1.25rem; border-radius: 999px; font-weight: 600; color: #334155; font-size: 0.95rem;">
+        <span style="color: #ef4444;">Ideal for:</span> Migrations & Complex Integrations
+      </div>
+    </div>
+    <div style="flex: 1 1 500px; order: 2;">
+      <div style="position: relative; border-radius: 1.5rem; background: linear-gradient(145deg, #fef2f2, #fff1f2); padding: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.6); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+         <!-- Faux UI Element -->
+         <div style="width: 80%; height: 75%; background: white; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem;">
+           <div style="width: 60px; height: 60px; border-radius: 16px; background: #f8fafc; border: 2px solid #e2e8f0; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#64748b;">DB</div>
+           <div style="flex: 1; height: 4px; background: linear-gradient(90deg, #fca5a5, #ef4444); position: relative;">
+              <div style="position:absolute; width:12px; height:12px; border-radius:50%; background:#ef4444; top:-4px; left:50%; transform:translateX(-50%); box-shadow: 0 0 10px #ef4444;"></div>
+           </div>
+           <div style="width: 60px; height: 60px; border-radius: 16px; background: #f8fafc; border: 2px solid #e2e8f0; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#64748b;">API</div>
+         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product 3 -->
+  <section style="display: flex; flex-wrap: wrap; align-items: center; gap: 4rem; margin-bottom: 8rem;">
+    <div style="flex: 1 1 400px; order: 1;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 16px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); color: #16a34a; margin-bottom: 1.5rem; box-shadow: 0 10px 25px rgba(22,163,74,0.15);">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 32px; height: 32px; fill: currentColor;">
+          <path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm15 0h-2v3h-3v2h3v3h2v-3h3v-2h-3z"/>
+        </svg>
+      </div>
+      <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2;">Admin & Reporting</h2>
+      <p style="font-size: 1.15rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+        Master your production data. Equip your operational teams with high-fidelity control panels focusing intensely on traceability, permissioning, and robust analytics.
+      </p>
+      <div style="display: inline-block; background: #f1f5f9; padding: 0.75rem 1.25rem; border-radius: 999px; font-weight: 600; color: #334155; font-size: 0.95rem;">
+        <span style="color: #16a34a;">Ideal for:</span> Operational & Enterprise Teams
+      </div>
+    </div>
+    <div style="flex: 1 1 500px; order: 2;">
+      <div style="position: relative; border-radius: 1.5rem; background: linear-gradient(145deg, #f0fdf4, #f8fafc); padding: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.6); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+         <!-- Faux UI Element -->
+         <div style="width: 80%; height: 75%; background: white; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 1.5rem; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display:flex; justify-content: space-between; align-items: flex-end; height: 60%; padding-bottom: 1rem; border-bottom: 1px solid #f1f5f9;">
+               <div style="width:15%; height:40%; background:#bbf7d0; border-radius:4px 4px 0 0;"></div>
+               <div style="width:15%; height:70%; background:#86efac; border-radius:4px 4px 0 0;"></div>
+               <div style="width:15%; height:100%; background:#22c55e; border-radius:4px 4px 0 0;"></div>
+               <div style="width:15%; height:60%; background:#4ade80; border-radius:4px 4px 0 0;"></div>
+               <div style="width:15%; height:85%; background:#16a34a; border-radius:4px 4px 0 0;"></div>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
+               <div style="width:100%; height:12px; background:#f1f5f9; border-radius:4px;"></div>
+               <div style="width:60%; height:12px; background:#f1f5f9; border-radius:4px;"></div>
+            </div>
+         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product 4 -->
+  <section style="display: flex; flex-wrap: wrap; align-items: center; gap: 4rem; margin-bottom: 6rem; flex-direction: row-reverse;">
+    <div style="flex: 1 1 400px; order: 1;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 16px; background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); color: #9333ea; margin-bottom: 1.5rem; box-shadow: 0 10px 25px rgba(147,51,234,0.15);">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 32px; height: 32px; fill: currentColor;">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+        </svg>
+      </div>
+      <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; line-height: 1.2;">Identity & Access</h2>
+      <p style="font-size: 1.15rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+        Enterprise-grade security natively embedded. Provides seamlessly integrated authentication, Single Sign-On (SSO) capabilities, and granular token management across your entire suite.
+      </p>
+      <div style="display: inline-block; background: #f1f5f9; padding: 0.75rem 1.25rem; border-radius: 999px; font-weight: 600; color: #334155; font-size: 0.95rem;">
+        <span style="color: #9333ea;">Ideal for:</span> Scaling SaaS & Zero-Trust Networks
+      </div>
+    </div>
+    <div style="flex: 1 1 500px; order: 2;">
+      <div style="position: relative; border-radius: 1.5rem; background: linear-gradient(145deg, #f5f3ff, #fdf4ff); padding: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.6); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+         <!-- Faux UI Element -->
+         <div style="position:relative; width: 60%; height: 60%; background: white; border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:center;">
+           <div style="width: 70%; height: 70%; border-radius: 50%; border: 4px dashed #d8b4fe; animation: spin-slow 12s linear infinite;"></div>
+           <div style="position:absolute; background: linear-gradient(135deg, #c084fc, #9333ea); width: 40px; height: 40px; border-radius: 12px; display:flex; align-items:center; justify-content:center; box-shadow: 0 8px 20px rgba(147,51,234,0.3);">
+              <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:white;"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7.53 3.35c-.21 4.54-3.08 8.87-7.53 10.23-4.45-1.36-7.32-5.69-7.53-10.23L12 3.18z"/></svg>
+           </div>
+         </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+@keyframes spin-slow {
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+<!-- Call to Action -->
+<section class="container cta" style="background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); color: white; padding: 4rem 2rem; border-radius: 1.5rem; text-align: center; margin-bottom: 2rem;">
+  <h3 style="color: white; font-size: 2.5rem; margin-bottom: 1rem; margin-top: 0;">Need a custom product?</h3>
+  <p style="color: #bfdbfe; font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem;">We can adapt or extend any of these products to meet your specific requirements. Contact us to discuss integration and licensing.</p>
+  <p><a class="btn-primary" href="{{ url_for('main.contact') }}" style="background: white; color: #1e3a8a; display: inline-block; padding: 1rem 2.5rem; font-weight: bold; border-radius: 9999px;">Contact Sales</a></p>
+</section>
+
+{% endblock %}

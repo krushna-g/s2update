@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>S2Digital - {% block title %}{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <!-- Decorative animated background (non-interactive) -->
+  <div class="site-decor" aria-hidden="true">
+    <svg class="decor-svg" viewBox="0 0 1200 800" preserveAspectRatio="none" role="img" focusable="false">
+      <!-- soft blobs -->
+      <g class="decor-group">
+        <circle class="decor-circle decor-1" cx="100" cy="120" r="160" fill="url(#g1)" />
+        <circle class="decor-circle decor-2" cx="1040" cy="680" r="220" fill="url(#g2)" />
+        <circle class="decor-circle decor-3" cx="880" cy="160" r="110" fill="url(#g3)" />
+      </g>
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0" stop-color="#0b5fff" stop-opacity="0.18" />
+          <stop offset="1" stop-color="#4bc0ff" stop-opacity="0.06" />
+        </linearGradient>
+        <linearGradient id="g2" x1="0" x2="1">
+          <stop offset="0" stop-color="#7c3aed" stop-opacity="0.12" />
+          <stop offset="1" stop-color="#0b5fff" stop-opacity="0.05" />
+        </linearGradient>
+        <linearGradient id="g3" x1="0" x2="1">
+          <stop offset="0" stop-color="#00c2a8" stop-opacity="0.10" />
+          <stop offset="1" stop-color="#0b5fff" stop-opacity="0.04" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="{{ url_for('main.index') }}" aria-label="S2Digital home" style="text-decoration: none; display: flex; align-items: center;">
+        <span class="brand-text" style="font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px;">
+          <span style="color: inherit;">S2</span><span style="background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Digital</span>
+        </span>
+      </a>
+
+      <!-- Mobile nav toggle -->
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <nav id="main-nav" class="main-nav" data-visible="false" aria-label="Main navigation" role="navigation">
+        <a href="{{ url_for('main.index') }}">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 11.5L12 4l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1V11.5z" fill="currentColor" />
+          </svg>
+          Home
+        </a>
+        <a href="{{ url_for('main.about') }}">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="2.5" fill="currentColor" />
+            <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="currentColor" />
+          </svg>
+          About
+        </a>
+        <a href="{{ url_for('main.products') }}">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none" />
+            <rect x="14" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none" />
+            <rect x="3" y="13" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none" />
+          </svg>
+          Products
+        </a>
+        <a href="{{ url_for('main.services') }}">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2v6M5 8v6a7 7 0 0014 0V8" stroke="currentColor" stroke-width="1.6" fill="none"
+              stroke-linecap="round" />
+          </svg>
+          Services
+        </a>
+        <a href="{{ url_for('main.contact') }}">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 8v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8" stroke="currentColor" stroke-width="1.6" fill="none" />
+            <path d="M21 8l-9 6L3 8" stroke="currentColor" stroke-width="1.6" fill="none" />
+          </svg>
+          Contact
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+
+  <!-- Email us floating button (keeps visible, accessible) -->
+  <a class="email-us-btn" href="mailto:{{ site.CONTACT_EMAIL or 'contact@S2Digital.com' }}" aria-label="Email S2Digital"
+    title="Email S2Digital">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M2 6.5A2.5 2.5 0 014.5 4h15A2.5 2.5 0 0122 6.5v11A2.5 2.5 0 0119.5 20h-15A2.5 2.5 0 012 17.5v-11zM4.8 6.8l7.2 5.2 7.2-5.2"
+        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <span class="email-text">Email Us</span>
+  </a>
+
+  <!-- Footer (semantic, grouped links) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a class="brand" href="{{ url_for('main.index') }}" aria-label="S2Digital home" style="text-decoration: none; display: inline-block; margin-bottom: 0.5rem;">
+            <span class="brand-text" style="font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px;">
+              <span style="color: inherit;">S2</span><span style="background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Digital</span>
+            </span>
+          </a>
+          <p class="brand-note">Professional, lean solutions.</p>
+          <div class="socials" aria-label="Social links">
+            <a class="social-link" href="{{ site.SOCIAL_FACEBOOK or '#' }}" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill: #1877F2;">
+                <path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
+              </svg>
+              <span class="social-text">Facebook</span>
+            </a>
+            <a class="social-link" href="{{ site.SOCIAL_INSTAGRAM or '#' }}" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <defs>
+                  <linearGradient id="ig-grad" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#833ab4" />
+                    <stop offset="50%" stop-color="#fd1d1d" />
+                    <stop offset="100%" stop-color="#fcb045" />
+                  </linearGradient>
+                </defs>
+                <path style="fill: url(#ig-grad);" d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 1 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
+              </svg>
+              <span class="social-text">Instagram</span>
+            </a>
+            <a class="social-link" href="{{ site.SOCIAL_LINKEDIN or '#' }}" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill: #0A66C2;">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              <span class="social-text">LinkedIn</span>
+            </a>
+            <a class="social-link" href="{{ site.SOCIAL_TWITTER or '#' }}" target="_blank" rel="noopener noreferrer"
+              aria-label="X (Twitter)">
+              <!-- Adding a slight shadow or border color as X is entirely black -->
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill: #0f1419;">
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+              </svg>
+              <span class="social-text">X</span>
+            </a>
+            <a class="social-link" href="{{ site.SOCIAL_WHATSAPP or '#' }}" target="_blank" rel="noopener noreferrer"
+              aria-label="WhatsApp">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="fill: #25D366;">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+              </svg>
+              <span class="social-text">WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>
+            <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 2L3 7v7c0 5 4 9 9 9s9-4 9-9V7l-9-5z" stroke="currentColor" stroke-width="1.4" fill="none"
+                stroke-linejoin="round" />
+            </svg>
+            About Us
+          </h4>
+          <nav class="footer-nav" aria-label="About links">
+            <ul class="footer-list">
+              <li><a href="{{ url_for('main.our_story') }}">Our story</a></li>
+              <li><a href="{{ url_for('main.life_at') }}">Life at S2Digital</a></li>
+              <li><a href="{{ url_for('main.careers') }}">Careers</a></li>
+              <li><a href="{{ url_for('main.contact') }}">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4>
+            <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 6h16M4 12h10M4 18h16" stroke="currentColor" stroke-width="1.4" fill="none"
+                stroke-linecap="round" />
+            </svg>
+            Insights
+          </h4>
+          <nav class="footer-nav" aria-label="Insights links">
+            <ul class="footer-list">
+              <li><a href="{{ url_for('main.blog') }}">Blog</a></li>
+              <li><a href="{{ url_for('main.resources') }}">Resources</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4>
+            <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M3 3h18v6H3zM3 15h18v6H3z" stroke="currentColor" stroke-width="1.4" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Industries
+          </h4>
+          <nav class="footer-nav" aria-label="Industries links">
+            <ul class="footer-list">
+              <li><a href="{{ url_for('main.industry_financial') }}">Financial Services</a></li>
+              <li><a href="{{ url_for('main.industry_banking') }}">Banking &amp; Insurance</a></li>
+              <li><a href="{{ url_for('main.industry_telecom') }}">Telecommunication</a></li>
+              <li><a href="{{ url_for('main.industry_technology') }}">Technology</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>
+            <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.4" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Legal & Policies
+          </h4>
+          <nav class="footer-nav" aria-label="Policy links">
+            <ul class="footer-list">
+              <li><a href="{{ url_for('main.privacy') }}">Data Privacy Policy</a></li>
+              <li><a href="{{ url_for('main.compliance') }}">Compliance</a></li>
+              <li><a href="{{ url_for('main.cookies') }}">Cookies Information</a></li>
+              <li><a href="{{ url_for('main.security') }}">Security Policy</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div class="footer-meta">© S2Digital 2025 All Rights Reserved</div>
+        <div class="footer-meta">
+          <a href="#" style="color: inherit; text-decoration: none; font-weight: 600;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">View Full Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+</body>
+
+</html>

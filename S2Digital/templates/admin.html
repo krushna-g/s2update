@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Admin - Contacts{% endblock %}
+{% block content %}
+<h2>Contact Inquiries</h2>
+{% if contacts %}
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+        <th>Mobile</th>
+      <th>Message</th>
+      <th>Created At (UTC)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in contacts %}
+    <tr>
+      <td>{{ c.id }}</td>
+      <td>{{ c.name }}</td>
+      <td>{{ c.email }}</td>
+        <td>{{ c.mobile or '' }}</td>
+  <td class="message-cell">{{ c.message }}</td>
+      <td>{{ c.created_at }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No contacts yet.</p>
+{% endif %}
+{% endblock %}
