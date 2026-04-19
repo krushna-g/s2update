@@ -1,5 +1,8 @@
 Flask>=2.0
 Flask-SQLAlchemy>=3.0
 pytest>=7.0
-gunicorn
-Flask-Limiter
+<<<<<<< HEAD
+gunicorns
+=======
+
+>>>>>>> 474089e480a530a8ca28d4027b21acf6c5e96e3b
