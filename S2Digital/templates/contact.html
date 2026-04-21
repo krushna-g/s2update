@@ -2,319 +2,510 @@
 {% block title %}Contact Us{% endblock %}
 {% block content %}
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-.contact-page {
-  font-family: 'Poppins', sans-serif;
-  background: #ffffff;
-  color: #334155;
-  padding-bottom: 6rem;
-}
+  .contact-page {
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #334155;
+    padding-bottom: 6rem;
+  }
 
-/* Golden accent text */
-.text-gold {
-  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+  /* Golden accent text */
+  .text-gold {
+    background: linear-gradient(135deg, #2f3cd0 0%, #0919c2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-/* Hero */
-.contact-hero {
-  background: linear-gradient(135deg, #fafafa 0%, #f1f5f9 100%);
-  border-bottom: 1px solid #e2e8f0;
-  padding: 6rem 1.5rem 5rem;
-  text-align: center;
-}
-.contact-hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  color: #1e293b;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-.contact-hero p {
-  font-size: 1.15rem;
-  color: #64748b;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
+  /* Hero */
+  .contact-hero {
+    background: linear-gradient(135deg, #fafafa 0%, #f1f5f9 100%);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 6rem 1.5rem 5rem;
+    text-align: center;
+  }
 
-/* Form card */
-.contact-form-card {
-  max-width: 860px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
-}
-.form-inner {
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1px solid #e2e8f0;
-  padding: 3.5rem 4rem;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-}
+  .contact-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
 
-.form-section-label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #d97706;
-  margin-bottom: 1.5rem;
-  display: block;
-  border-bottom: 1px solid #fef3c7;
-  padding-bottom: 0.5rem;
-}
+  .contact-hero p {
+    font-size: 1.15rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
 
-.form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+  /* Form card */
+  .contact-form-card {
+    max-width: 860px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+  }
 
-.flabel {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  color: #374151;
-  font-size: 0.9rem;
-  gap: 6px;
-}
-.flabel span { font-size: 0.75rem; color: #ef4444; }
+  .form-inner {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    padding: 3.5rem 4rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  }
 
-.finput, .fselect {
-  width: 100%;
-  padding: 13px 16px;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 10px;
-  background: #fafafa;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  color: #374151;
-  transition: all 0.2s ease;
-}
-.finput::placeholder { color: #9ca3af; }
-.finput:focus, .fselect:focus {
-  outline: none;
-  border-color: #f59e0b;
-  background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.12);
-}
+  .form-section-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #3638bc;
+    margin-bottom: 1.5rem;
+    display: block;
+    border-bottom: 1px solid #fef3c7;
+    padding-bottom: 0.5rem;
+  }
 
-/* Phone prefix */
-.phone-wrap {
-  display: flex;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fafafa;
-  transition: all 0.2s ease;
-}
-.phone-wrap:focus-within {
-  border-color: #f59e0b;
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.12);
-}
-.phone-prefix {
-  padding: 13px 14px;
-  background: #fef9ee;
-  color: #92400e;
-  font-weight: 700;
-  font-size: 0.95rem;
-  border-right: 1.5px solid #e5e7eb;
-  white-space: nowrap;
-}
-.phone-input {
-  flex: 1; padding: 13px 16px; border: none; background: transparent;
-  font-family: 'Poppins', sans-serif; font-size: 0.95rem; color: #374151; outline: none;
-}
-.phone-input::placeholder { color: #9ca3af; }
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 
-/* File upload */
-.file-zone {
-  border: 2px dashed #d1d5db;
-  border-radius: 10px;
-  padding: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
-  background: #fafafa;
-  transition: all 0.2s ease;
-}
-.file-zone:hover { border-color: #f59e0b; background: #fffbeb; }
-.file-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+  .flabel {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.9rem;
+    gap: 6px;
+  }
 
-/* Submit button */
-.btn-send {
-  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-  color: #ffffff;
-  border: none;
-  padding: 15px 36px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.25s ease;
-  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
-}
-.btn-send:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(217, 119, 6, 0.4); }
+  .flabel span {
+    font-size: 0.75rem;
+    color: #ef4444;
+  }
 
-/* Guarantee cards */
-.guarantee-section {
-  background: #fafafa;
-  border-top: 1px solid #e2e8f0;
-  padding: 5rem 1.5rem 6rem;
-  text-align: center;
-}
-.guarantee-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 3rem auto 0;
-}
-.g-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  transition: all 0.3s ease;
-}
-.g-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,0,0,0.08); border-color: #fde68a; }
-.g-icon {
-  width: 60px; height: 60px; border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1.5rem;
-}
-.g-icon.gold { background: #fef9c3; color: #d97706; }
-.g-icon.teal { background: #ccfbf1; color: #0d9488; }
-.g-icon.rose { background: #ffe4e6; color: #e11d48; }
+  .finput,
+  .fselect {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #374151;
+    transition: all 0.2s ease;
+  }
+
+  .finput::placeholder {
+    color: #9ca3af;
+  }
+
+  .finput:focus,
+  .fselect:focus {
+    outline: none;
+    border-color: #1e0fc8;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.12);
+  }
+
+  /* Phone prefix */
+  .phone-wrap {
+    display: flex;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fafafa;
+    transition: all 0.2s ease;
+  }
+
+  .phone-wrap:focus-within {
+    border-color: #1349b3;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.12);
+  }
+
+  .phone-prefix {
+    padding: 13px 14px;
+    background: #fef9ee;
+    color: #92400e;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-right: 1.5px solid #e5e7eb;
+    white-space: nowrap;
+  }
+
+  .phone-input {
+    flex: 1;
+    padding: 13px 16px;
+    border: none;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #374151;
+    outline: none;
+  }
+
+  .phone-input::placeholder {
+    color: #9ca3af;
+  }
+
+  /* File upload */
+  .file-zone {
+    border: 2px dashed #d1d5db;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    background: #fafafa;
+    transition: all 0.2s ease;
+  }
+
+  .file-zone:hover {
+    border-color: #1f4ef5;
+    background: #fffbeb;
+  }
+
+  .file-zone input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Submit button */
+  .btn-send {
+    background: linear-gradient(135deg, #05409a 0%, #2a1fc1 100%);
+    color: #ffffff;
+    border: none;
+    padding: 15px 36px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
+  }
+
+  .btn-send:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(217, 119, 6, 0.4);
+  }
+
+  /* Guarantee cards */
+  .guarantee-section {
+    background: #fafafa;
+    border-top: 1px solid #e2e8f0;
+    padding: 5rem 1.5rem 6rem;
+    text-align: center;
+  }
+
+  .guarantee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+  }
+
+  .g-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+  }
+
+  .g-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+    border-color: #fde68a;
+  }
+
+  .g-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+
+  .g-icon.gold {
+    background: #fef9c3;
+    color: #0f44a6;
+  }
+
+  .g-icon.teal {
+    background: #ccfbf1;
+    color: #0d9488;
+  }
+
+  .g-icon.rose {
+    background: #ffe4e6;
+    color: #e11d48;
+  }
+</style>
+
+
+
+<!-- Form Card -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+  .contact-page {
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #334155;
+    padding: 4rem 1.5rem;
+  }
+
+  /* Hero */
+  .contact-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #121a28;
+    margin-bottom: 1rem;
+  }
+
+  .contact-hero p {
+    font-size: 1.05rem;
+    color: #3b5272;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Form card */
+  .contact-form-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: 2.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .flabel {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.9rem;
+  }
+
+  .finput,
+  .ftextarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fafafa;
+    font-size: 0.95rem;
+    color: #374151;
+    transition: all 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .finput:focus,
+  .ftextarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  }
+
+  .ftextarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  /* Submit button */
+  .btn-send {
+    background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(59, 130, 246, 0.3);
+    width: 100%;
+  }
+
+  .btn-send:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(59, 130, 246, 0.4);
+  }
+
+  .error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.8rem;
+  }
 </style>
 
 <div class="contact-page">
-
   <!-- Hero -->
   <section class="contact-hero">
-    <h1>Connect with S2<span class="text-gold">Digital</span></h1>
-    <p>Reach out with your enterprise project, technical inquiry, or partnership proposal. We respond within one business day.</p>
+    <h1>Contact S2Digital</h1>
+    <p>Fill out the form below and we’ll get back to you within one business day.</p>
   </section>
 
-  <!-- Form Card -->
+  <!-- Form -->
   <div class="contact-form-card">
-    <div class="form-inner">
-      
-      <form id="contactForm" autocomplete="on" novalidate style="display: flex; flex-direction: column; gap: 0;">
+    <form id="contactForm">
+      <div class="form-row">
+        <label class="flabel">Full Name</label>
+        <input type="text" class="finput" placeholder="Enter your full name" required>
+      </div>
 
-        <!-- Name section -->
-        <span class="form-section-label">Your Name</span>
-        <div class="form-row" style="margin-bottom: 2rem;">
-          <label class="flabel">First Name <span>*</span>
-            <input type="text" name="first_name" required placeholder="Jane" class="finput" maxlength="60" />
-          </label>
-          <label class="flabel">Middle Name
-            <input type="text" name="middle_name" placeholder="A." class="finput" maxlength="60" />
-          </label>
-          <label class="flabel">Last Name <span>*</span>
-            <input type="text" name="last_name" required placeholder="Doe" class="finput" maxlength="60" />
-          </label>
-        </div>
+      <div class="form-row">
+        <label class="flabel">Email Address</label>
+        <input type="email" id="email" class="finput" placeholder="Enter your email" required>
+        <div id="emailError" class="error" style="display:none;">Please enter a valid email address.</div>
+      </div>
 
-        <!-- Contact section -->
-        <span class="form-section-label">Contact Details</span>
-        <div class="form-row" style="margin-bottom: 1.5rem;">
-          <label class="flabel">Email Address <span>*</span>
-            <input type="email" name="email" required placeholder="jane@company.com" class="finput" maxlength="200" />
-          </label>
-          <label class="flabel">Mobile Number <span>*</span>
-            <div class="phone-wrap">
-              <div class="phone-prefix">+91</div>
-              <input type="tel" name="mobile" required pattern="^[0-9]{10}$" title="10 digits required" placeholder="9876543210" class="phone-input" maxlength="10" />
-            </div>
-          </label>
-        </div>
+      <div class="form-row">
+        <label class="flabel">Mobile Number (+91)</label>
+        <input type="tel" id="mobile" class="finput" placeholder="+91 9876543210" pattern="(\+91[\\s-]?)?[6-9][0-9]{9}" required>
+        <div id="mobileError" class="error" style="display:none;">Please enter a valid Indian mobile number.</div>
+      </div>
 
-        <div class="form-row" style="margin-bottom: 2rem;">
-          <label class="flabel">WhatsApp Number
-            <div class="phone-wrap">
-              <div class="phone-prefix">+91</div>
-              <input type="tel" name="whatsapp" pattern="^[0-9]{10}$" title="10 digits required" placeholder="9876543210" class="phone-input" maxlength="10" />
-            </div>
-          </label>
-          <label class="flabel">Address
-            <input type="text" name="address" placeholder="Corporate Ave, Hyderabad" class="finput" maxlength="300" />
-          </label>
-        </div>
+      <div class="form-row">
+        <label class="flabel">Address</label>
+        <input type="text" class="finput" placeholder="Enter your address">
+      </div>
 
-        <!-- Inquiry section -->
-        <span class="form-section-label">Your Inquiry</span>
-        <div class="form-row" style="margin-bottom: 1.5rem;">
-          <label class="flabel">Inquiry Type <span>*</span>
-            <select name="inquiry_type" required class="fselect">
-              <option value="" disabled selected>Select a topic…</option>
-              <option value="project">New Project Estimate</option>
-              <option value="partnership">Partnership Opportunity</option>
-              <option value="careers">Careers & Recruitment</option>
-              <option value="other">General Question</option>
-            </select>
-          </label>
-        </div>
+      <div class="form-row">
+        <label class="flabel">How can we help you?</label>
+        <textarea class="ftextarea" placeholder="Write your inquiry here..." required></textarea>
+      </div>
 
-        <div style="margin-bottom: 2rem;">
-          <label class="flabel">How can we help? <span>*</span>
-            <textarea name="message" required placeholder="Tell us about your project or inquiry…" class="finput" style="min-height: 130px; resize: vertical; margin-top: 6px;" maxlength="2000"></textarea>
-          </label>
-        </div>
+      <button type="submit" class="btn-send">Submit Inquiry</button>
+      <div id="successMessage" style="display:none; margin-top: 1rem; color: #16a34a; font-weight: 600;">Your inquiry has been submitted successfully.</div>
+    </form>
+  </div>
+</div>
+<script>
+  const form = document.getElementById('contactForm');
+  const mobileInput = document.getElementById('mobile');
+  const emailInput = document.getElementById('email');
+  const mobileError = document.getElementById('mobileError');
+  const emailError = document.getElementById('emailError');
+  const successMessage = document.getElementById('successMessage');
 
-        <!-- File Upload -->
-        <span class="form-section-label">Attachment (Optional)</span>
-        <div class="file-zone" style="margin-bottom: 2.5rem;">
-          <input type="file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.png" />
-          <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: #9ca3af; stroke-width: 2; margin: 0 auto 8px; display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          <p style="margin: 0; color: #6b7280; font-size: 0.9rem; font-family: Poppins, sans-serif;">Click or drag to upload a file</p>
-          <p style="margin: 4px 0 0; color: #9ca3af; font-size: 0.78rem; font-family: Poppins, sans-serif;">PDF, DOC, JPG — Max 5MB</p>
-        </div>
+  form.addEventListener('submit', function (e) {
+    let valid = true;
 
-        <!-- Submit -->
-        <div>
-          <button type="submit" class="btn-send">
-            Send Message
-            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </button>
-        </div>
-      </form>
+    // Mobile validation: allow +91, 91, or plain 10-digit Indian mobile numbers
+    const normalizedMobile = mobileInput.value.replace(/[\s-]/g, '');
+    const mobilePattern = /^(?:\+91|91)?[6-9]\d{9}$/;
+    if (!mobilePattern.test(normalizedMobile)) {
+      mobileError.style.display = 'block';
+      valid = false;
+    } else {
+      mobileError.style.display = 'none';
+    }
+
+    // Email validation
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (!emailPattern.test(emailInput.value)) {
+      emailError.style.display = 'block';
+      valid = false;
+    } else {
+      emailError.style.display = 'none';
+    }
+
+    if (!valid) {
+      e.preventDefault();
+    } else {
+      e.preventDefault(); // prevent actual page reload
+      successMessage.style.display = 'block'; // show success message
+      form.reset(); // clear form fields
+    }
+  });
+</script>
+
+
+
+<!-- File Upload -->
+
+
+<!-- Guarantee Section -->
+<section class="guarantee-section">
+  <h2 style="font-size: 2.25rem; font-weight: 800; color: #1e293b;">Our Communication <span
+      class="text-gold">Guarantee</span></h2>
+  <p style="color: #64748b; font-size: 1.05rem; margin-top: 0.75rem;">What you can always expect when you reach out to
+    us.</p>
+
+  <div class="guarantee-grid">
+    <div class="g-card">
+      <div class="g-icon gold">
+        <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2;">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      </div>
+      <h4 style="font-size: 1.2rem; color: #1e293b; margin-bottom: 0.6rem; font-weight: 700;">Total Accuracy</h4>
+      <p style="color: #64748b; line-height: 1.6; font-size: 0.95rem;">Precise, actionable technical scoping — no
+        jargon, no guesswork.</p>
+    </div>
+    <div class="g-card">
+      <div class="g-icon teal">
+        <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2;">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      </div>
+      <h4 style="font-size: 1.2rem; color: #1e293b; margin-bottom: 0.6rem; font-weight: 700;">One Business Day</h4>
+      <p style="color: #64748b; line-height: 1.6; font-size: 0.95rem;">A meaningful human response guaranteed within
+        24 business hours.</p>
+    </div>
+    <div class="g-card">
+      <div class="g-icon rose">
+        <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2;">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+      </div>
+      <h4 style="font-size: 1.2rem; color: #1e293b; margin-bottom: 0.6rem; font-weight: 700;">Senior Engineering</h4>
+      <p style="color: #64748b; line-height: 1.6; font-size: 0.95rem;">Reviewed directly by our senior architects with
+        19+ years of experience.</p>
     </div>
   </div>
-
-  <!-- Guarantee Section -->
-  <section class="guarantee-section">
-    <h2 style="font-size: 2.25rem; font-weight: 800; color: #1e293b;">Our Communication <span class="text-gold">Guarantee</span></h2>
-    <p style="color: #64748b; font-size: 1.05rem; margin-top: 0.75rem;">What you can always expect when you reach out to us.</p>
-    
-    <div class="guarantee-grid">
-      <div class="g-card">
-        <div class="g-icon gold">
-          <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h4 style="font-size: 1.2rem; color: #1e293b; margin-bottom: 0.6rem; font-weight: 700;">Total Accuracy</h4>
-        <p style="color: #64748b; line-height: 1.6; font-size: 0.95rem;">Precise, actionable technical scoping — no jargon, no guesswork.</p>
-      </div>
-      <div class="g-card">
-        <div class="g-icon teal">
-          <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h4 style="font-size: 1.2rem; color: #1e293b; margin-bottom: 0.6rem; font-weight: 700;">One Business Day</h4>
-        <p style="color: #64748b; line-height: 1.6; font-size: 0.95rem;">A meaningful human response guaranteed within 24 business hours.</p>
-      </div>
-      <div class="g-card">
-        <div class="g-icon rose">
-          <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h4 style="font-size: 1.2rem; color: #1e293b; margin-bottom: 0.6rem; font-weight: 700;">Senior Engineering</h4>
-        <p style="color: #64748b; line-height: 1.6; font-size: 0.95rem;">Reviewed directly by our senior architects with 19+ years of experience.</p>
-      </div>
-    </div>
-  </section>
+</section>
 
 </div>
 {% endblock %}
