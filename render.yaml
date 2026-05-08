@@ -3,8 +3,8 @@ services:
     name: s2digital
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: flask --app run.py init-db && gunicorn run:app --bind 0.0.0.0:$PORT
+    buildCommand: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+    startCommand: python -m flask --app run.py init-db && gunicorn run:app --bind 0.0.0.0:$PORT
     healthCheckPath: /
     autoDeploy: true
     envVars:
