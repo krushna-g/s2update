@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: s2digital
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: flask --app run.py init-db && gunicorn run:app --bind 0.0.0.0:$PORT
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: S2Digital_CONFIG
+        value: S2Digital.config.ProdConfig
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_KEY
+        sync: false

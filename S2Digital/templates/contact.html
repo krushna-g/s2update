@@ -69,7 +69,7 @@
     padding-bottom: 0.5rem;
   }
 
-  .form-row {
+  c .form-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
@@ -398,7 +398,8 @@
 
       <div class="form-row">
         <label class="flabel">Mobile Number (+91)</label>
-        <input type="tel" id="mobile" class="finput" placeholder="+91 9876543210" pattern="(\+91[\\s-]?)?[6-9][0-9]{9}" required>
+        <input type="tel" id="mobile" class="finput" placeholder="+91 9876543210" pattern="(\+91[\\s-]?)?[6-9][0-9]{9}"
+          required>
         <div id="mobileError" class="error" style="display:none;">Please enter a valid Indian mobile number.</div>
       </div>
 
@@ -413,7 +414,8 @@
       </div>
 
       <button type="submit" class="btn-send">Submit Inquiry</button>
-      <div id="successMessage" style="display:none; margin-top: 1rem; color: #16a34a; font-weight: 600;">Your inquiry has been submitted successfully.</div>
+      <div id="successMessage" style="display:none; margin-top: 1rem; color: #16a34a; font-weight: 600;">Your inquiry
+        has been submitted successfully.</div>
     </form>
   </div>
 </div>
