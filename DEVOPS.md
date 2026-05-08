@@ -6,6 +6,7 @@ This project now has a basic DevOps setup:
 - GitHub Actions for automated tests
 - Docker image for container deployment
 - Docker Compose for local container running
+- PostgreSQL database support for contact form data
 - Render Blueprint for cloud deployment
 
 ## Local development
@@ -60,6 +61,13 @@ http://localhost:5000
 docker compose up --build
 ```
 
+This starts two containers:
+
+```text
+s2digital-web -> Flask website
+s2digital-db  -> PostgreSQL database
+```
+
 Stop:
 
 ```powershell
@@ -71,6 +79,8 @@ Remove the SQLite volume:
 ```powershell
 docker compose down -v
 ```
+
+This also removes the local PostgreSQL data volume.
 
 ## GitHub Actions
 
@@ -94,6 +104,13 @@ Render uses:
 render.yaml
 ```
 
+The Blueprint creates:
+
+```text
+s2digital    -> Flask web service
+s2digital-db -> Render PostgreSQL database
+```
+
 Push changes to GitHub, then in Render click:
 
 ```text
@@ -111,3 +128,19 @@ Manual Deploy > Deploy latest commit
 7. Render deployment
 8. Logs and monitoring
 9. PostgreSQL for production database
+
+## PostgreSQL
+
+The app reads the database connection from:
+
+```text
+DATABASE_URL
+```
+
+On Render, `DATABASE_URL` is connected automatically from the `s2digital-db` PostgreSQL database in `render.yaml`.
+
+In local Docker, `docker-compose.yml` creates a PostgreSQL container and sets:
+
+```text
+DATABASE_URL=postgresql://s2digital:s2digital@db:5432/s2digital
+```

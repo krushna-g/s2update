@@ -8,11 +8,30 @@ services:
       S2Digital_CONFIG: S2Digital.config.ProdConfig
       SECRET_KEY: change-this-docker-secret
       ADMIN_KEY: change-this-admin-key
-      DATABASE_URL: sqlite:////app/data/S2Digital.db
+      DATABASE_URL: postgresql://s2digital:s2digital@db:5432/s2digital
       PORT: 5000
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    container_name: s2digital-db
+    environment:
+      POSTGRES_DB: s2digital
+      POSTGRES_USER: s2digital
+      POSTGRES_PASSWORD: s2digital
+    ports:
+      - "5432:5432"
     volumes:
-      - s2digital-data:/app/data
+      - s2digital-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U s2digital -d s2digital"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     restart: unless-stopped
 
 volumes:
-  s2digital-data:
+  s2digital-postgres-data:

@@ -1,6 +1,7 @@
 # Deploy S2Digital on Render
 
 This project includes a `render.yaml` Blueprint for a simple Render web service.
+It also creates a Render PostgreSQL database for contact form data.
 
 ## 1. Push the project to GitHub
 
@@ -43,10 +44,21 @@ Add these environment variables:
 S2Digital_CONFIG=S2Digital.config.ProdConfig
 SECRET_KEY=<generate a strong secret>
 ADMIN_KEY=<your admin password/key>
+DATABASE_URL=<your Render PostgreSQL internal connection string>
 ```
 
-## Important note about SQLite on Render Free
+## PostgreSQL database
 
-The current app uses SQLite. Render Free web services use an ephemeral filesystem, so saved contact form entries can be lost after a restart or redeploy.
+The Blueprint creates:
 
-For a demo website, this is okay. For production, move the database to Render Postgres.
+```text
+s2digital-db
+```
+
+Render passes its internal PostgreSQL connection string into the web service as:
+
+```text
+DATABASE_URL
+```
+
+The contact form and admin page use this database.
