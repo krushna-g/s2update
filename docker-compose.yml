@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    container_name: s2digital-web
+    ports:
+      - "5000:5000"
+    environment:
+      S2Digital_CONFIG: S2Digital.config.ProdConfig
+      SECRET_KEY: change-this-docker-secret
+      ADMIN_KEY: change-this-admin-key
+      DATABASE_URL: sqlite:////app/data/S2Digital.db
+      PORT: 5000
+    volumes:
+      - s2digital-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  s2digital-data:

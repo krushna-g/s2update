@@ -23,8 +23,8 @@ git push
 Render will use:
 
 ```text
-Build Command: pip install -r requirements.txt
-Start Command: flask --app run.py init-db && gunicorn run:app --bind 0.0.0.0:$PORT
+Build Command: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+Start Command: python -m flask --app run.py init-db && gunicorn run:app --bind 0.0.0.0:$PORT
 ```
 
 ## 3. Manual Render setup
@@ -33,8 +33,8 @@ If you do not use the Blueprint, create a Render **Web Service** manually:
 
 ```text
 Runtime: Python
-Build Command: pip install -r requirements.txt
-Start Command: flask --app run.py init-db && gunicorn run:app --bind 0.0.0.0:$PORT
+Build Command: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+Start Command: python -m flask --app run.py init-db && gunicorn app:app --bind 0.0.0.0:$PORT
 ```
 
 Add these environment variables:
